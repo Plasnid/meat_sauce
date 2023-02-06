@@ -7,22 +7,23 @@ function functionName(){}
 function displayLog(msg){
     console.log(msg);
 }
-function displayInPage(msg, tagType){
+function displayInPage(msg, tagType,styleClass){
     // * let, const
     // * let: is changeable (ie. age, wake up time)
     // * const: constant, set once (ie. loveOfGarlic, name, place of birth)
     const page = document.querySelector('body');
     let itemToAdd = document.createElement(tagType);
+    itemToAdd.classList.add(styleClass);
     itemToAdd.innerText = msg;
     page.appendChild(itemToAdd);
 
 }
-function displayText(msg, tagType){
-    displayInPage(msg, tagType);
+function displayText(msg, tagType,styling){
+    displayInPage(msg, tagType, styling);
     displayLog(msg);
 }
-displayText("Tasty Sauce!","h1");
-displayText("The Tastiest Meat Sauce at your fingertips!", "h2");
+displayText("Tasty Sauce!","h1","mainTitle");
+displayText("The Tastiest Meat Sauce at your fingertips!", "h2","subTitle");
 
 // ! prep veggies
 
@@ -122,4 +123,14 @@ console.log(sharpThings["shmear depositor"]);
     -slice aromatics
     -transfer carrot celery onions garlic to board
 */
-// * 
+// 
+let pageBody = document.querySelector('body');
+let interact = document.createElement("h3");
+interact.innerText = "Hey";
+pageBody.appendChild(interact);
+
+pageBody.addEventListener("click", function(e){
+    console.log("I have been clicked");
+    console.log(e.target);
+    e.target.classList.toggle("mainTitle");
+});
