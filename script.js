@@ -129,8 +129,11 @@ let interact = document.createElement("h3");
 interact.innerText = "Hey";
 pageBody.appendChild(interact);
 
-pageBody.addEventListener("click", function(e){
+interact.addEventListener("click", clickAction);
+
+function clickAction(e){
     console.log("I have been clicked");
-    console.log(e.target);
+    console.log(e);
     e.target.classList.toggle("mainTitle");
-});
+    console.log(e);
+}
